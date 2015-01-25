@@ -1,0 +1,220 @@
+\documentclass[11pt,letter]{article}
+\usepackage[margin=3cm]{geometry}
+
+% ------------------------------------------------------------------------------
+
+% Physics 84 --- Skills Diagnostic Redo
+
+% This skills diagnostic was assigned as a part of Physics 84 (Quantum
+% Information) at Harvey Mudd College during Spring semester 2015. It was given
+% as a teaser the the first class meeting, then assigned as homework once that
+% class had gotten going.
+
+% ------------------------------------------------------------------------------
+
+% AUTHORSHIP, COPYRIGHT and LICENSE
+
+% Written in 2015 by Benjamin Johnson.
+
+% To the extent possible under law, the author(s) have dedicated all copyright
+% and related and neighboring rights to this source code to the public domain
+% worldwide. This source code is distributed without any warranty.
+
+% You should have received a copy of the CC0 Public Domain Dedication along with
+% this source code. If not, see
+% <http://creativecommons.org/publicdomain/zero/1.0/>.
+
+% ------------------------------------------------------------------------------
+
+%% Document Metadata
+
+\usepackage{./hw_metadata}
+
+% Course metadata
+\setCourseDepartment{Physics}
+\setCourseNumber{84}
+\setCourseTitle{Quantum Information}
+%\setCourseSection{1} % Omit when there is only one section
+
+% Assignment metadata
+\setAssignmentTitle{Skills Diagnostic Redo}
+\setDate{2015-01-29}
+
+% Author metadata
+\setAuthor{} % Name of student completing the assignment.
+
+% Acknowledgments (acks)
+%\addAck{}
+
+%% Packages and settings for titles, headers, and footers,
+%% and for layout features like tables, images, and colore
+
+\usepackage{./hw_layout}
+
+% I've separated these out of the package so that the authorship and usage
+% restrictions may be more easily adjusted from within the document.
+\hypersetup{
+  colorlinks={true},
+  linkcolor={black},
+  urlcolor={black},
+  pdfauthor={\theAuthor{}},
+  pdfcopyright={To the extent possible under law, the author(s) have waived
+    all copyright and related or neighboring rights to this work.},
+  pdflicenseurl={https://creativecommons.org/publicdomain/zero/1.0/}
+}
+\lfoot{\ccZeroBar}
+\fancypagestyle{fancytitle}{%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhf{}%
+  \fancyfoot[L]{\ccZeroBar}%
+  \fancyfoot[C]{\sc \thepage\ of \pageref{LastPage}}%
+}
+
+% ------------------------------------------------------------------------------
+
+%% Packages and settings for typesetting primary content
+
+% This must come before hw_type due to a conflict between amsthm and fontspec
+% Look inside the (meta)package for more details on all it provides
+\usepackage{./hw_math}
+
+% This need not bother with settings for math typesetting.
+% This must come after hw_math due to a conflict between amsthm and fontspec
+\usepackage{./hw_type}
+
+% I'm experimenting with using Unicode math.
+% This should come last so it can override previous settings
+\usepackage[math-style=ISO]{unicode-math}
+\setmathfont{texgyrepagella-math.otf}
+
+% unicode-math changes the behavior of bold math, and therefore affects vectors.
+% Now this method works as it should, so the previous kludge is unnecessary.
+% This supercedes my old vector code.
+\newcommand{\vvec}[1]{\vec{\mathbf{#1}}} % Arbitrary vector (bold, arrow)
+\newcommand{\uvec}[1]{\hat{\mathbf{#1}}} % Unit vector (bold, hat)
+\renewcommand{\vv}[1]{\vvec{#1}} % Alias for backward compatibility.
+\renewcommand{\uv}[1]{\uvec{#1}} % Alias for backward compatibility.
+\newcommand{\vmat}[1]{\vec{\mathbf{#1}}} % Arbitrary matrix (bold, arrow)
+\newcommand{\umat}[1]{\hat{\mathbf{#1}}} % Unitary matrix (bold, hat)
+
+% Define '\incr' for the increment operator, commonly refered to and typeset as
+% Greek Capital Delta, but which in fact has its own Unicode code point and
+% LaTeX operator --- the ISO standard. Appearance may vary significantly or not
+% at all depending on typeface.
+\newcommand*\incr{\mathop{}\!\mathbin{}∆}
+
+% Per ISO 80000, true mathematical constants (e, i, π) are best typeset upright,
+% not italic, just like units (m, kg, Å) and mathematical operations (sin, lim)
+
+% An upright 'e' for Euler's number
+\newcommand{\mathe}{\mathrm{e}}
+% An upright 'i' for the imaginary unit
+\newcommand{\mathi}{\mathrm{i}}
+\renewcommand{\I}{\mathi}
+% An upright pi for the mathematical constant
+\newcommand{\mathpi}{\mathrm{\pi}}
+
+% ------------------------------------------------------------------------------
+
+% PACKAGES and MACROS for THIS FILE only
+
+% This package provides pretty syntax highlighting and code formatting
+% for a variety of programming languages.
+%\newcommand\TestAppExists[3]{#2}
+%\usepackage{minted}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% Typeset the first page header
+\maketitle
+\thispagestyle{fancytitle}
+\tabulateAcks
+
+% ------------------------------------------------------------------------------
+
+\begin{problem}[0.1 Eigenvalues and Eigenvectors]
+  Find the eigenvalues and eigenvectors of the following matrix:
+  \begin{align*}
+    \begin{bmatrix} 2 & \mathi \\ -\mathi & 2 \end{bmatrix}.
+  \end{align*}
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\pagebreak % -------------------------------------------------------------------
+
+\begin{problem}[0.2 Digital Logic Circuits]
+  Design and draw a simple logic circuit that takes two classical bits as input
+  and is described by the following truth table:
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{l c || r}
+    A & B & Out \\
+    \hline
+    0 & 0 & 1 \\
+    0 & 1 & 1 \\
+    1 & 0 & 0 \\
+    1 & 1 & 1
+  \end{tabular}
+\end{table}
+
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+\pagebreak % -------------------------------------------------------------------
+
+\begin{problem}[0.3 Qubit States and Measurement]
+    A qubit is prepared in the quantum state $\ket{\psi} =
+    \frac{1}{\sqrt{3}}\ket{0} + \mathi\sqrt{\frac{2}{3}}\ket{1}$.
+  \begin{enumerate}[(a)]
+  \item What is the probability that an ideal projective measurement in the
+    $\cbr{\ket{a},\ket{a_{\perp}}}$ basis will find the qubit in the state
+    $\ket{a}$ if $\ket{a} = \ket{0}$?
+  \item What if $\ket{a} = \frac{1}{\sqrt{2}}(\ket{0}+\ket{1})$?
+  \end{enumerate}
+\end{problem}
+
+\begin{solution}
+  % \begin{enumerate}[(a)]
+  % \item
+  % \item
+  % \end{enumerate}
+\end{solution}
+
+\pagebreak % -------------------------------------------------------------------
+
+\begin{problem}[0.4 Matrix Operations]
+  Write down a matrix $\vmat{U}_{\chi}$ such that
+  $\vmat{U}_{\chi} \begin{bmatrix} a \\ b\mathe^{\mathi\varphi} \end{bmatrix}
+  = \begin{bmatrix} a \\ b\mathe^{\mathi\del{\varphi+\chi}} \end{bmatrix}$ for
+  any real numbers $a$, $b$, and $\varphi$.  Is $\vmat{U}_{\chi}$ a unitary
+  matrix?
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+% ------------------------------------------------------------------------------
+
+\vfill
+
+\hrule
+\vspace{\baselineskip}
+
+\begin{center}
+  \ccZeroTextNotice{}
+\end{center}
+
+% ------------------------------------------------------------------------------
+
+\end{document}
+
+% ------------------------------------------------------------------------------
