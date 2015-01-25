@@ -109,6 +109,13 @@
 \usepackage{hyperref}
 \usepackage{hyperxmp}
 
+\hypersetup{
+  colorlinks={true},
+  linkcolor={black},
+  urlcolor={black},
+  pdfauthor={\theAuthor{}}
+}
+
 % ------------------------------------------------------------------------------
 
 \usepackage{mdframed}
@@ -142,6 +149,8 @@
   %\pagebreak % I'd like to be able to exclude this, and am too lazy to be fancy
 }
 
+% ------------------------------------------------------------------------------
+
 % Drop-in CC0 public domain dedication
 \newcommand{\ccZeroNotice}{
   \begin{tabular}{m{2.75cm} m{8.5cm}}
@@ -172,6 +181,24 @@
   all copyright and related or neighboring rights to this work. \\
   \href{https://creativecommons.org/publicdomain/zero/1.0/}{
     creativecommons.org/publicdomain/zero/1.0/}
+}
+
+% Dedicate the output document to the public domain under CC0
+\iftoggle{ccZero}{%
+  \hypersetup{
+    pdfcopyright={To the extent possible under law, the author(s) have waived
+      all copyright and related or neighboring rights to this work.},%
+    pdflicenseurl={https://creativecommons.org/publicdomain/zero/1.0/}%
+  }
+  \lfoot{\ccZeroBar}%
+  \fancypagestyle{fancytitle}{%
+    \renewcommand{\headrulewidth}{0pt}%
+    \fancyhf{}%
+    \fancyfoot[L]{\ccZeroBar}%
+    \fancyfoot[C]{\sc \thepage\ of \pageref{LastPage}}%
+  }
+}{%
+  % Change nothing if CC0 not applied.
 }
 
 % ------------------------------------------------------------------------------
